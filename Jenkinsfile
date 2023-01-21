@@ -1,18 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage("init") {
+        stage("start") {
             steps {
                 script {
                     echo "hello"
                 }
             }
         }
-        stage("build jar") {
+        stage("publish file") {
             steps {
                 script {
-                    //sh 'dotnet clean'
-                    //sh 'dotnet publish -c Release'
                     sh 'dotnet publish -c Release'
                 }
             }
@@ -20,9 +18,8 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    //sh 'docker build -t dockerdemo .'
-                    //gv.buildImage()
-                    echo "hi"
+                    sh 'docker build -t dockerdemo .'
+                    
                 }
             }
         }
