@@ -12,7 +12,8 @@ pipeline {
             steps {
                 script {
                     //sh 'dotnet clean'
-                    sh 'dotnet publish -c Release'
+                    //sh 'dotnet publish -c Release'
+                    sh 'docker --version'
                 }
             }
         }
