@@ -4,22 +4,22 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                    echo "hellp"
+                    echo "hello"
                 }
             }
         }
         stage("build jar") {
             steps {
                 script {
-                    echo "building jar"
-                    //gv.buildJar()
+                    sh 'dotnet clean'
+                    sh 'dotnet publish -c Release'
                 }
             }
         }
         stage("build image") {
             steps {
                 script {
-                    echo "building image"
+                    sh 'docker build -t dockerdemo .'
                     //gv.buildImage()
                 }
             }
@@ -27,8 +27,7 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    echo "deploying"
-                    //gv.deployApp()
+                    sh 'docker run -d -p 8081:80 --name myapp dockerdemo'
                 }
             }
         }
