@@ -13,7 +13,7 @@ pipeline {
                 script {
                     //sh 'dotnet clean'
                     //sh 'dotnet publish -c Release'
-                    sh 'docker --version'
+                    sh 'git --version'
                 }
             }
         }
