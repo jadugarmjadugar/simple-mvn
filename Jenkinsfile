@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        docker 'docker'
+    }
     stages {
         stage("init") {
             steps {
@@ -13,7 +16,7 @@ pipeline {
                 script {
                     //sh 'dotnet clean'
                     //sh 'dotnet publish -c Release'
-                    sh 'git --version'
+                    sh 'docker --version'
                 }
             }
         }
