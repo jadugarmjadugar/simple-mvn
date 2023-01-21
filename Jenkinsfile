@@ -26,8 +26,8 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    //sh 'docker run -d -p 8081:80 --name myapp dockerdemo'
-                    echo "hi"
+                    sh 'docker run -d -p 8081:80 --name myapp dockerdemo'
+                    
                 }
             }
         }
