@@ -11,7 +11,7 @@ pipeline {
         stage("build jar") {
             steps {
                 script {
-                    sh 'dotnet clean'
+                    //sh 'dotnet clean'
                     sh 'dotnet publish -c Release'
                 }
             }
@@ -19,15 +19,17 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    sh 'docker build -t dockerdemo .'
+                    //sh 'docker build -t dockerdemo .'
                     //gv.buildImage()
+                    echo "hi"
                 }
             }
         }
         stage("deploy") {
             steps {
                 script {
-                    sh 'docker run -d -p 8081:80 --name myapp dockerdemo'
+                    //sh 'docker run -d -p 8081:80 --name myapp dockerdemo'
+                    echo "hi"
                 }
             }
         }
